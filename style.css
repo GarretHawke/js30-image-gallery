@@ -13,6 +13,7 @@ html {
 .panels {
   min-height: 100vh;
   overflow: hidden;
+  display: flex;
 }
 
 .panel {
@@ -26,6 +27,11 @@ html {
   font-size: 2rem;
   background-size: cover;
   background-position: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
 }
 
 .panel1 {
@@ -48,11 +54,30 @@ html {
   background-image: url(https://source.unsplash.com/3MNzGlQM7qs/1500x1500);
 }
 
-/* Flex Children */
 .panel > * {
   margin: 0;
   width: 100%;
   transition: transform 0.5s;
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.panel > *:first-child {
+  transform: translateY(-100%);
+}
+
+.panel.open-active > *:first-child {
+  transform: translateY(0);
+}
+
+.panel > *:last-child {
+  transform: translateY(100%);
+}
+
+.panel.open-active > *:last-child {
+  transform: translateY(0);
 }
 
 .panel p {
@@ -68,4 +93,5 @@ html {
 
 .panel.open {
   font-size: 4rem;
+  flex: 5;
 }
